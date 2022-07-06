@@ -128,13 +128,7 @@ import Swal from 'sweetalert2'
           }
           // console.log(filterItems)
           setItems(filterItems)
-          // if(value === "") {
-          //   sweetErrAlert('Please write something to search...', 'Ok')
-          // }
-  
-          // let filterItems = dataItems.filter((item) => item.type.includes(value));
-          // if(filterItems.length === 0) {sweetErrAlert('No items to show with this keyword!', 'Ok')}
-          // setItems(filterItems)
+        
       }
     return(
         <>                
