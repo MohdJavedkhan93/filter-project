@@ -1,8 +1,10 @@
 import React, {startTransition, useEffect, useState} from "react";
-import Slider from "../components/Slider";
+import Header from "../components/Header";
+import Banner from "../components/Banner";
 import About from "./About";
 import Store from "./Store";
 import Swal from 'sweetalert2'
+
 
     const dataItems = [
         { 
@@ -93,6 +95,7 @@ import Swal from 'sweetalert2'
       ];
       const Home = () => {
         const [items, setItems] = useState([]);
+        const [cartItems, setCartItems] = useState([]);
         useEffect(() => {
           setItems(dataItems);
         }, []);
@@ -130,11 +133,19 @@ import Swal from 'sweetalert2'
           setItems(filterItems)
         
       }
+      const addToCart = (item) => {
+        // cartItems.push(item)
+        // setCartItems([...cartItems])
+        setCartItems([...cartItems, item])
+        
+      }
+      // console.log("cartItems", cartItems)
     return(
-        <>                
-        <Slider />
+        <>
+        <Header cartItems={cartItems} />                
+        <Banner />
         <About />
-        <Store dataItems={items} onFilterItems={filterItems} 
+        <Store dataItems={items} onFilterItems={filterItems} addToCart={addToCart}
         searchItems={searchItems} />
         </>
 
