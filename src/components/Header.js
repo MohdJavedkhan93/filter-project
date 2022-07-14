@@ -8,7 +8,7 @@ const Header = ({ cartItems }) => {
     return initial + item.price;
   }, 0);
   const navigate = useNavigate();
-  const redirectToCartSending = (cart) => {
+  const redirectToCart = (cart) => {
     navigate("/cart", { state: cart });
   };
   return (
@@ -58,7 +58,7 @@ const Header = ({ cartItems }) => {
                   id="cart-info"
                   className="nav-info align-items-center cart-info d-flex justify-content-between mx-lg-5"
                   onClick={() => {
-                    redirectToCartSending(cartItems);
+                    redirectToCart(cartItems);
                   }}
                 >
                   <span className="cart-info__icon mr-lg-3">
