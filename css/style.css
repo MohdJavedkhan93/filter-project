@@ -57,8 +57,8 @@ body {
 
 .max-height {
   min-height: calc(100vh - 76px);
-  background: linear-gradient(var(--yellowTrans), var(--yellowTrans)),
-    url("../img/headerBcg.jpeg") center/cover fixed no-repeat;
+  background: linear-gradient(var(--yellowTrans), var(--yellowTrans));
+    
   position: relative;
 }
 .banner {
@@ -179,7 +179,7 @@ body {
   background: var(--mainYellow);
   border-top-left-radius: 1rem;
   transition: all 1s ease-in-out;
-  /* transform: translate(100%, 100%); */
+  transform: translate(100%, 100%);
 }
 .img-container:hover .store-item-icon {
   transform: translate(0, 0);
@@ -195,6 +195,3 @@ body {
   background: var(--mainPink);
   color: var(--mainBlack);
 }
-/* cart popup */
-#cart{ top: 100%; width: 400px; z-index: 1; padding: 1.5em; border: 1px solid rgba(215, 153, 153, 0.5);display: none;}
-#cart.showCart{display: block;}

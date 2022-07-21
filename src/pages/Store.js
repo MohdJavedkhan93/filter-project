@@ -1,9 +1,15 @@
 import React from "react";
+import { useSelector } from "react-redux/es/exports";
 
-const Store = ({ dataItems, onFilterItems, searchItems, addToCart }) => {
+const Store = ({ onFilterItems, searchProducts, addToCart }) => {
+  const { products } = useSelector((store) => {
+    return {
+      products: store.product.products
+    }
+  })
 
      const renderItems = () => {
-      return dataItems.map((item) => {
+      return products.map((item) => {
         return <div className="col-10 col-sm-6 col-lg-4 mx-auto my-3 store-item sweets" data-item={item.type} key={item.id}>
         <div className="card ">
           <div className="img-container">
@@ -46,7 +52,7 @@ const Store = ({ dataItems, onFilterItems, searchItems, addToCart }) => {
             <div className="col-10 mx-auto col-md-6">
               <form>
                 <div className="input-group mb-3">
-                  <div className="input-group-prepend" style={{cursor : "pointer"}} onClick={() => {searchItems()}}>
+                  <div className="input-group-prepend" style={{cursor : "pointer"}} onClick={() => {searchProducts()}}>
                     <span className="input-group-text search-box" id="search-icon"><i className="fas fa-search"></i></span>
                   </div>
                   <input type="text" className="form-control" placeholder='item....' id="search-item" />
