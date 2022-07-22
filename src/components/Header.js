@@ -1,11 +1,16 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom"
 import Logo  from "../assets/img/logo.svg"
-
+import { useSelector } from "react-redux";
 const Header = ({cartItems, onRemoveCartItems, clearCart}) => {
+  const { carts } = useSelector((store) => {
+    return {
+      carts : store.product.carts
+    }
+  })
 
   const cartOpen = () => {
-    if(!cartItems.length){
+    if(!carts.length){
       return;
     }
     const element = document.getElementById("cart");
@@ -13,7 +18,8 @@ const Header = ({cartItems, onRemoveCartItems, clearCart}) => {
   }
 
     let price = 0;
-    price = cartItems.reduce((init, item) => {
+    console.log("carts", carts)
+    price = carts.reduce((init, item) => {
         return init + item.price
     },0)
 
@@ -24,7 +30,7 @@ const Header = ({cartItems, onRemoveCartItems, clearCart}) => {
   };
 
     const displayCartItems = () => {
-        return cartItems.map((cart) => {
+        return carts.map((cart) => {
           return <div className="cart-item d-flex justify-content-between text-capitalize my-3" key={cart.id}>
           <img src={require(`../assets/img/${cart.image}`)} className="img-fluid" id="item-img" alt={cart.title} width="80" />
           <div className="item-text">
@@ -67,7 +73,7 @@ const Header = ({cartItems, onRemoveCartItems, clearCart}) => {
               </div>
               <div id="cart-info" className="nav-info align-items-center cart-info d-flex justify-content-between ms-lg-5" onClick={cartOpen}>
                 <span className="cart-info__icon mr-lg-3"><i className="fas fa-shopping-cart"></i></span>
-                <p className="mb-0 text-capitalize"><span id="item-count">{cartItems.length} </span> {cartItems.length && cartItems.length > 1 ? "items" : "item"} - $<span className="item-total">{price}</span></p>
+                <p className="mb-0 text-capitalize"><span id="item-count">{carts.length} </span> {carts.length && carts.length > 1 ? "items" : "item"} - $<span className="item-total">{price}</span></p>
               </div>
 
               <div id="cart" className="cart position-absolute">
@@ -80,7 +86,7 @@ const Header = ({cartItems, onRemoveCartItems, clearCart}) => {
     
                 <div className="cart-buttons-container mt-3 d-flex justify-content-between">
                   <a href="#d" id="clear-cart" className="btn btn-outline-secondary btn-black text-uppercase" onClick={() =>{clearCart()}}>clear cart</a>
-                  <a href="#d" className="btn btn-outline-secondary text-uppercase btn-pink" onClick={(event)=> {redirectToCheckout(event, cartItems)}}>checkout</a>
+                  <a href="#d" className="btn btn-outline-secondary text-uppercase btn-pink" onClick={(event)=> {redirectToCheckout(event, carts)}}>checkout</a>
                 </div>
               </div>
 

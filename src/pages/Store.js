@@ -1,7 +1,7 @@
 import React from "react";
-import { useSelector } from "react-redux/es/exports";
+import { useSelector } from "react-redux";
 
-const Store = ({ onFilterItems, searchProducts, addToCart }) => {
+const Store = ({ onFilterItems, searchItems, addToCart }) => {
   const { products } = useSelector((store) => {
     return {
       products: store.product.products
@@ -52,7 +52,7 @@ const Store = ({ onFilterItems, searchProducts, addToCart }) => {
             <div className="col-10 mx-auto col-md-6">
               <form>
                 <div className="input-group mb-3">
-                  <div className="input-group-prepend" style={{cursor : "pointer"}} onClick={() => {searchProducts()}}>
+                  <div className="input-group-prepend" style={{cursor : "pointer"}} onClick={() => {searchItems()}}>
                     <span className="input-group-text search-box" id="search-icon"><i className="fas fa-search"></i></span>
                   </div>
                   <input type="text" className="form-control" placeholder='item....' id="search-item" />

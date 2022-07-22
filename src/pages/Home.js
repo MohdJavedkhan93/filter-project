@@ -1,4 +1,4 @@
-import React, { useEffect, useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux"
 import Header from "../components/Header";
 import Banner from "../components/Banner";
@@ -26,17 +26,17 @@ import { dataItems } from "../data";
           dispatch(filterProducts(dataItems, filter))
         };
         
-        const searchProducts = () => {
-          const value = document.getElementById("search-item").value
-          value.toLowerCase().trim();
-          // console.log(value)
-          dispatch(searchProductsByKeyWord(dataItems, value))
+        const searchItems = () => {
+          // const value = document.getElementById("search-item").value
+          // let trimmedValue = value.toLowerCase().trim();
+          // console.log(jak)
+          dispatch(searchProductsByKeyWord(dataItems))
         };
       const addCart = (item) => {
+        // setCartItems([...cartItems, item])
         // cartItems.push(item)
         // setCartItems([...cartItems])
-        // setCartItems([...cartItems, item])
-        dispatch(addToCart(cartItems, item))
+        dispatch(addToCart(item))
       }
       // console.log("cartItems", cartItems)
       const removeCartItems = (id) => {
@@ -54,7 +54,7 @@ import { dataItems } from "../data";
         <Banner />
         <About />
         <Store onFilterItems={filterItems} addToCart={addCart}
-        searchProducts={searchProducts} />
+        searchItems={searchItems} />
         </>
 
     )

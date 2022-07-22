@@ -17,8 +17,12 @@ const filterProducts = (dataItems, filter) => (dispatch) => {
     })
 
 }
-const searchProductsByKeyWord = (dataItems, value) => (dispatch) => {
-    if(value === "") {
+const searchProductsByKeyWord = (dataItems) => (dispatch) => {
+    const value = document.getElementById("search-item").value
+          const trimmedValue = value.toLowerCase().trim();
+    if(trimmedValue === "") {
+        
+        // console.log(value)
         Swal.fire({
           title: 'Error!',
           text: 'please write something to search',
@@ -27,7 +31,7 @@ const searchProductsByKeyWord = (dataItems, value) => (dispatch) => {
         })
         // alert("please write something to search")
       }
-      const searchProducts = dataItems.filter((item) => item.type.includes(value))
+      const searchProducts = dataItems.filter((item) => item.type.includes(trimmedValue))
       if(searchProducts.length === 0) {
         Swal.fire({
           title: 'Error!',
@@ -43,14 +47,16 @@ const searchProductsByKeyWord = (dataItems, value) => (dispatch) => {
     })
    
 }
-const addToCart =(cartItems, item) => (dispatch) => {
-    console.log("cartItems", cartItems)
-    console.log("item", item)
+const addToCart =(item) => (dispatch) => {
+    
+    // console.log("cartItems", cartItems)
+    // console.log("item", item)
     
     dispatch({
         type: ADD_TO_CART,
         payload: item
     })
+
 }
 export {
     setProducts,

@@ -9,22 +9,27 @@ const productReducer = (state=initialState, action) => {
     switch(action.type) {
         case SET_PRODUCTS: {
             return {
+                ...state,
                 products: action.payload
             }
         }
         case FILTER_PRODUCTS: {
             return {
+                ...state,
                 products: action.payload
             }
         }
         case SEARCH_PRODUCTS_BY_KEYWORD: {
             return {
+                ...state,
                 products: action.payload
             }
         }
         case ADD_TO_CART: {
             return {
-                carts: state.carts.push(action.payload)
+                ...state,
+                // carts: state.carts.push(action.payload)
+                carts: [...state.carts, action.payload]
             }
         }
         default: {
