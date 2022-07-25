@@ -2,7 +2,7 @@ import React from "react";
 import { Link, useNavigate } from "react-router-dom"
 import Logo  from "../assets/img/logo.svg"
 import { useSelector } from "react-redux";
-const Header = ({cartItems, onRemoveCartItems, clearCart}) => {
+const Header = ({onRemoveCartItems, clearCart}) => {
   const { carts } = useSelector((store) => {
     return {
       carts : store.product.carts
@@ -39,7 +39,7 @@ const Header = ({cartItems, onRemoveCartItems, clearCart}) => {
             <p id="cart-item-price" className="mb-0">{cart.price}</p>
           </div>
           <a href="#d" id='cart-item-remove' className="cart-item-remove" onClick={()=> {
-            onRemoveCartItems(cart.id)
+            onRemoveCartItems(carts, cart.id)
           }}>
             <i className="fas fa-trash"></i>
           </a>

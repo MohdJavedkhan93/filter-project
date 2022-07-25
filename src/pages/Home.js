@@ -7,7 +7,7 @@ import Store from "./Store";
 
 import {
   setProducts, filterProducts, addToCart,
-    searchProductsByKeyWord, 
+    searchProductsByKeyWord, removeCartItem, clearItem
 } from "../store/actions/products"
 import { dataItems } from "../data";
 
@@ -15,7 +15,7 @@ import { dataItems } from "../data";
    
       const Home = () => {
         const dispatch = useDispatch();
-        const [cartItems, setCartItems] = useState([]);
+        // const [cartItems, setCartItems] = useState([]);
         useEffect(() => {
           dispatch(setProducts(dataItems))
         }, []);
@@ -39,18 +39,19 @@ import { dataItems } from "../data";
         dispatch(addToCart(item))
       }
       // console.log("cartItems", cartItems)
-      const removeCartItems = (id) => {
-        const items = cartItems.filter((item) => item.id !== id);
-        setCartItems(items)
+      const removeCartItems = (carts, id) => {
+        // const items = cartItems.filter((item) => item.id !== id);
+        // setCartItems(items)
+        dispatch(removeCartItem(carts, id))
       }
       const clearCart = () => {
         // alert("hii")
-        return setCartItems([])
-
+        // return setCartItems([])
+        dispatch(clearItem([]))
       }
     return(
         <>
-        <Header cartItems={cartItems} onRemoveCartItems={removeCartItems} clearCart={clearCart} />                
+        <Header onRemoveCartItems={removeCartItems} clearCart={clearCart} />                
         <Banner />
         <About />
         <Store onFilterItems={filterItems} addToCart={addCart}
