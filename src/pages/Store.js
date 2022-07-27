@@ -63,7 +63,7 @@ const Store = ({ onFilterItems, searchItems, addToCart }) => {
         <div className="row">
           <div className=" col-lg-8 mx-auto d-flex justify-content-around my-2 sortBtn flex-wrap">
             <a
-              href="#"
+              href="!#"
               className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
               data-filter="all"
               onClick={onFilterItems}
@@ -72,7 +72,7 @@ const Store = ({ onFilterItems, searchItems, addToCart }) => {
               all
             </a>
             <a
-              href="#"
+              href="!#"
               className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
               data-filter="cakes"
               onClick={onFilterItems}
@@ -80,7 +80,7 @@ const Store = ({ onFilterItems, searchItems, addToCart }) => {
               cakes
             </a>
             <a
-              href="#"
+              href="!#"
               className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
               data-filter="cupcakes"
               onClick={onFilterItems}
@@ -88,7 +88,7 @@ const Store = ({ onFilterItems, searchItems, addToCart }) => {
               cupcakes
             </a>
             <a
-              href="#"
+              href="!#"
               className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
               data-filter="sweets"
               onClick={onFilterItems}
@@ -96,7 +96,7 @@ const Store = ({ onFilterItems, searchItems, addToCart }) => {
               sweets
             </a>
             <a
-              href="#"
+              href="!#"
               className="btn btn-outline-secondary btn-black text-uppercase filter-btn m-2"
               data-filter="doughnuts"
               onClick={onFilterItems}

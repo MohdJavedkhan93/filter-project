@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 const Checkout = () => {
     const location = useLocation();
     const { state } = location;
+    console.log("state", state)
 
     return(
         <>
@@ -17,7 +18,7 @@ const Checkout = () => {
                     <p id="cart-item-title" className="font-weight-bold mb-0">{item.title}</p>
                     <p id="cart-item-price" className="mb-0">{item.price}</p>
                 </div>
-                <a href="#" id='cart-item-remove' className="cart-item-remove">
+                <a href="!#" id='cart-item-remove' className="cart-item-remove">
                     <i className="fas fa-trash"></i>
                 </a>
             </div>
@@ -30,8 +31,8 @@ const Checkout = () => {
                 </div>
 
                 <div className="cart-buttons-container mt-3 d-flex justify-content-between">
-                <a href="#" id="clear-cart" className="btn btn-outline-secondary btn-black text-uppercase">clear cart</a>
-                <a href="#" className="btn btn-outline-secondary text-uppercase btn-pink">checkout</a>
+                <a href="!#" id="clear-cart" className="btn btn-outline-secondary btn-black text-uppercase">clear cart</a>
+                <a href="!#" className="btn btn-outline-secondary text-uppercase btn-pink">checkout</a>
                 </div>
             </div>
         </>

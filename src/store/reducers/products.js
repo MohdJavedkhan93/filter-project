@@ -1,5 +1,5 @@
 import { SET_PRODUCTS, FILTER_PRODUCTS, 
-    SEARCH_PRODUCTS_BY_KEYWORD, ADD_TO_CART, REMOVE_CART_ITEM, CLEAR_CART } from "../constants"
+    SEARCH_PRODUCTS_BY_KEYWORD, ADD_TO_CART, REMOVE_CART_ITEM, CLEAR_CART, CHECKOUT } from "../constants"
 
 const initialState = {
     products:[],
@@ -39,6 +39,12 @@ const productReducer = (state=initialState, action) => {
             }
         }
         case CLEAR_CART: {
+            return {
+                ...state,
+                carts:action.payload
+            }
+        }
+        case CHECKOUT: {
             return {
                 ...state,
                 carts:action.payload

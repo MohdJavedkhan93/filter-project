@@ -5,6 +5,7 @@ import {
   ADD_TO_CART,
   REMOVE_CART_ITEM,
   CLEAR_CART,
+  CHECKOUT,
 } from "../constants";
 import Swal from "sweetalert2";
 
@@ -65,8 +66,8 @@ const addToCart = (item) => (dispatch) => {
 };
 const removeCartItem = (carts, id) => (dispatch) => {
   const items = carts.filter((item) => item.id !== id);
-  console.log("carts", carts);
-  console.log("items", items);
+  // console.log("carts", carts);
+  // console.log("items", items);
   dispatch({
     type: REMOVE_CART_ITEM,
     payload: items,
@@ -78,11 +79,19 @@ const clearItem = (data) => (dispatch => {
         payload: data
     })
 })
+const checkout = (cartItems) => (dispatch) => {
+  console.log("cartItems", cartItems)
+  dispatch({
+    type: CHECKOUT,
+    payload: cartItems
+  })
+}
 export {
   setProducts,
   filterProducts,
   searchProductsByKeyWord,
   addToCart,
   removeCartItem,
-  clearItem
+  clearItem,
+  checkout
 };
